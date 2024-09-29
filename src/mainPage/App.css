@@ -1,0 +1,19 @@
+.icons {
+    width: 40px;
+    border: 1px solid rgb(18, 122, 220);
+    border-radius: 7px;
+    height: 40px;
+    background-color: aqua;
+    padding-left: 10.5px;
+    padding-top: 10px;
+    color: blue;
+}
+
+.category{
+    text-decoration: none;
+    color: black;
+}
+
+.category:hover {
+    text-decoration: underline;
+}

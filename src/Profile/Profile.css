@@ -1,0 +1,13 @@
+.profile-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.links i{
+   margin-left: 20px;
+   
+}
+.links {
+    margin-left: 60px;
+}

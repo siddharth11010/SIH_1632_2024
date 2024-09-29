@@ -1,0 +1,27 @@
+.logo {
+  height: 3rem;
+}
+
+.freelancerimg {
+  width: 100%;
+  border-radius: 20px;
+
+}
+
+.img {
+  width: 100%;
+}
+
+.employerimg {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.copyRight i{
+  margin-left: 0.5rem;
+}
+.footer {
+  display: flex;
+  justify-content:space-evenly;
+}
+
