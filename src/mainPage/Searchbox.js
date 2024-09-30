@@ -2,9 +2,9 @@ import '../mainPage/main.css';
 
 export default function Searchbox() {
   return (
-    <div class="mb-5 mt-5">
+    <div class="mb-5 mt-5 text-center" style={{backgroundColor:"#F1F2F4"}}>
         <a href="/work">
-          <img src="searchbox.png" style={{width:"100%"}}></img>
+          <img src="search.png" style={{width:"90%",height:"42rem"}}></img>
         </a>
     
     </div>

@@ -16,7 +16,7 @@ export default function Hero() {
                 Register Now <i class="fa-solid fa-arrow-right"></i>
               </a> */}
               <a href="/freelancer">
-                <img class="freelancerimg" src="freelancerimg.png"></img>
+                <img class="freelancerimg" src="Intern.png"></img>
               </a>
             </div>
           </div>

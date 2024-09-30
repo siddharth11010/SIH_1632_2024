@@ -4,12 +4,12 @@ export default function Description() {
   return (
     <div class="container ">
       <br></br>
-      {/* <img src="Description.png"></img> */}
+
       <div class="container mt-5 mb-5">
         <div class="row">
           <div class="col">
-            <img src="Google_Work.png" style={{height:"7em"}}></img>
-            
+            <img src="Google_Work.png" style={{ height: "7em" }}></img>
+
             {/* <h4>
               <i class="fa-brands fa-google"></i>&nbsp; Senior UX Designer
             </h4>
@@ -19,16 +19,24 @@ export default function Description() {
           <div class="col apply mt-4">
             <button
               class="btn btn-dark"
-              style={{ height: "3rem", width: "10rem",borderRadius:"10px",backgroundColor:"#0A65CC" }}
+              style={{
+                height: "3rem",
+                width: "10rem",
+                borderRadius: "10px",
+                backgroundColor: "#0A65CC",
+              }}
             >
               Apply Now &nbsp;<i class="fa-solid fa-arrow-right"></i>
             </button>
             <button id="bookmark">
-            <i class="fa-regular fa-bookmark" style={{color: "#0f89e6"}}></i>
+              <i
+                class="fa-regular fa-bookmark"
+                style={{ color: "#0f89e6" }}
+              ></i>
             </button>
           </div>
         </div>
-        <br/>
+        <br />
         <div class="row">
           <div class="col-7">
             <h5>

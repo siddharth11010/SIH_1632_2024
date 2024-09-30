@@ -9,7 +9,7 @@ import Profile from "./Profile/Profile";
 import FindWork from "./FindWork/FindWork";
 import Description from "./desPage/Description";
 import Navbar from "./mainPage/Navbar";
-import Footer from "./mainPage/Footer";
+
 // import Signup from "./Signup/Signup";
 // import Login from "./Login/Login";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -23,13 +23,13 @@ root.render(
       <Route path="/signup" element={<Signup />}></Route> */}
       <Route path="/work" element={<FindWork />}></Route>
       <Route path="/employers" element={<App />}></Route>
-      <Route path="/freelancers" element={<App />}></Route>
+      <Route path="/internships" element={<App />}></Route>
       <Route path="/support" element={<App />}></Route>
       <Route path="/courses" element={<Courses />}></Route>
       <Route path="/profile" element={<Profile />}></Route>
       <Route path="/description" element={<Description />}></Route>
     </Routes>
-    <Footer />
+    
   </BrowserRouter>
 );
 

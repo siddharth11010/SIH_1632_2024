@@ -9,9 +9,9 @@ export default function Navbar() {
           <Link class="navbar-brand" to={"/"}>
             <img
               className="logo"
-              src="Logo.png"
+              src="logo1.png"
             ></img>
-            FreelanceFlow
+            CareerQuest
           </Link>
           <button
             class="navbar-toggler"
@@ -32,7 +32,7 @@ export default function Navbar() {
                   aria-current="page"
                   to={"/work"}
                 >
-                  Find Work
+                  Find Jobs
                 </Link>
               </li>
               <li class="nav-item">
@@ -41,13 +41,13 @@ export default function Navbar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={"/employers"}>
-                  Employers
+                <Link class="nav-link" to={"/internships"}>
+                  Internships
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={"/freelancers"}>
-                  Freelancers
+                <Link class="nav-link" to={"/employers"}>
+                  Employers
                 </Link>
               </li>
               <li class="nav-item">

@@ -8,7 +8,7 @@ export default function SearchCard() {
             <div class="card-body">
               <h5 class="card-title">Senior UX Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
-                Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
+                Internship &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
                 Rs30k
               </h6>
               <p class="card-text">
@@ -31,7 +31,7 @@ export default function SearchCard() {
               <h5 class="card-title">Graphic Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -53,7 +53,7 @@ export default function SearchCard() {
               <h5 class="card-title">Social Media Manager</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -75,7 +75,7 @@ export default function SearchCard() {
               <h5 class="card-title">App Developer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -97,7 +97,7 @@ export default function SearchCard() {
             <div class="card-body">
               <h5 class="card-title">Video editor</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
-                Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
+                Internship &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
                 Rs20k
               </h6>
               <p class="card-text">
@@ -120,7 +120,7 @@ export default function SearchCard() {
               <h5 class="card-title">Frontend Developer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -142,7 +142,7 @@ export default function SearchCard() {
               <h5 class="card-title">Full Stack Developer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -164,7 +164,7 @@ export default function SearchCard() {
               <h5 class="card-title">Product Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -187,7 +187,7 @@ export default function SearchCard() {
               <h5 class="card-title">Accountant</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -209,7 +209,7 @@ export default function SearchCard() {
               <h5 class="card-title">Data Scientist</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -231,7 +231,7 @@ export default function SearchCard() {
               <h5 class="card-title">Business Consultant</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -253,7 +253,7 @@ export default function SearchCard() {
               <h5 class="card-title">Content Writer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.

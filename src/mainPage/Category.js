@@ -51,7 +51,7 @@ export default function Category() {
           </a><br></br>
           <a href="content&creator"class="category">
             <p>
-              <i class="fa-solid fa-wand-magic-sparkles icons"></i> &nbsp; Content Creator
+              <i class="fa-solid fa-wand-magic-sparkles icons"></i> &nbsp; App Development
             </p>
           </a>
         </div>

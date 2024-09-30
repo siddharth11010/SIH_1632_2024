@@ -2,7 +2,7 @@ export default function RelatedWorks() {
   return (
     <div class="container mb-5">
       <div class="row">
-        <h2>Related Works</h2>
+        <h2>Related Jobs</h2>
 
         <div class="col">
           <br></br>
@@ -12,7 +12,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Senior UX Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -33,7 +33,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Graphic Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -51,10 +51,10 @@ export default function RelatedWorks() {
           <br></br>{" "}
           <div class="card" style={{ width: "18rem" }}>
             <div class="card-body">
-              <h5 class="card-title">Senior UX Designer</h5>
+              <h5 class="card-title">UI Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -79,7 +79,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Video editor</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -100,7 +100,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Frontend Developer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -118,10 +118,10 @@ export default function RelatedWorks() {
           <br></br>{" "}
           <div class="card" style={{ width: "18rem" }}>
             <div class="card-body">
-              <h5 class="card-title">Senior UX Designer</h5>
+              <h5 class="card-title">UI-UX Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -146,7 +146,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Project Manager</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -167,7 +167,7 @@ export default function RelatedWorks() {
               <h5 class="card-title">Senior UX Designer</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.
@@ -185,10 +185,10 @@ export default function RelatedWorks() {
           <br></br>
           <div class="card mb-5" style={{ width: "18rem" }}>
             <div class="card-body">
-              <h5 class="card-title">Graphic Designer</h5>
+              <h5 class="card-title">React Developer</h5>
               <h6 class="card-subtitle mb-2 ">
                 Full-time &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Salary:
-                Rs20k
+                Rs20LPA
               </h6>
               <p class="card-text">
                 <i class="fa-brands fa-google">&nbsp; &nbsp;</i>Google Inc.

@@ -1,4 +1,3 @@
-import Header from "./Header";
 import SearchBox from "./SearchBox";
 import SearchCard from "./SearchCard";
 export default function FindWork() {
@@ -6,8 +5,8 @@ export default function FindWork() {
     <div>
       {/* <Header /> */}
       <SearchBox />
-      <br/>
-      <SearchCard/>
+      <br />
+      <SearchCard />
     </div>
   );
 }
