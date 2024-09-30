@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub Help & Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h1 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+        }
+        .sidebar a.active {
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-list {
+            width: 300px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+        .chat-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        .chat-item:hover {
+            background-color: #f5f5f5;
+        }
+        .chat-item.active {
+            background-color: #e6f2ff;
+        }
+        .chat-window {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .message.sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .message.received {
+            background-color: #fff;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        .chat-input button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>FreelanceFlow</h1>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Payments</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#" class="active">Help & Support</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="chat-list" id="chatList">
+            <!-- Chat list items will be dynamically added here -->
+        </div>
+        <div class="chat-window">
+            <div class="chat-header" id="chatHeader">
+                Select a chat to start
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatList = document.getElementById('chatList');
+        const chatHeader = document.getElementById('chatHeader');
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        const hirers = [
+            { id: 1, name: 'John Doe', company: 'Tech Solutions Inc.' },
+            { id: 2, name: 'Jane Smith', company: 'Creative Designs Co.' },
+            { id: 3, name: 'Mike Johnson', company: 'Data Analytics Ltd.' }
+        ];
+
+        const chats = {
+            1: [
+                { sender: 'hirer', message: 'Hello, I have a question about a freelancer.' },
+                { sender: 'support', message: 'Of course, I\'d be happy to help. What\'s your question?' }
+            ],
+            2: [
+                { sender: 'hirer', message: 'Hi, I\'m having trouble with a payment.' },
+                { sender: 'support', message: 'I\'m sorry to hear that. Can you provide more details?' }
+            ],
+            3: [
+                { sender: 'hirer', message: 'Hello, how can I extend a project deadline?' },
+                { sender: 'support', message: 'Hello! I can certainly help you with that. First, could you tell me the project ID?' }
+            ]
+        };
+
+        let currentChat = null;
+
+        function createChatItem(hirer) {
+            const chatItem = document.createElement('div');
+            chatItem.classList.add('chat-item');
+            chatItem.innerHTML = `
+                <strong>${hirer.name}</strong>
+                <br>
+                <small>${hirer.company}</small>
+            `;
+            chatItem.addEventListener('click', () => loadChat(hirer.id));
+            return chatItem;
+        }
+
+        function loadChat(hirerId) {
+            currentChat = hirerId;
+            chatMessages.innerHTML = '';
+            chats[hirerId].forEach(msg => addMessage(msg.sender, msg.message));
+            chatHeader.textContent = hirers.find(h => h.id === hirerId).name;
+            document.querySelectorAll('.chat-item').forEach(item => item.classList.remove('active'));
+            document.querySelector(`.chat-item:nth-child(${hirerId})`).classList.add('active');
+        }
+
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender === 'support' ? 'sent' : 'received');
+            messageElement.textContent = message;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            if (currentChat && messageInput.value.trim()) {
+                addMessage('support', messageInput.value);
+                chats[currentChat].push({ sender: 'support', message: messageInput.value });
+                messageInput.value = '';
+            }
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        hirers.forEach(hirer => {
+            chatList.appendChild(createChatItem(hirer));
+        });
+    </script>
+</body>
+</html>

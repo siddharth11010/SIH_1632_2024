@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Payments</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: #f4f7fa;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .dashboard-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: var(--card-background);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-item i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .amount {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+
+        .status-completed {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .status-pending {
+            background-color: #FFC107;
+            color: black;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+
+        .chart {
+            width: 100%;
+            height: 300px;
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-money-bill-wave"></i> Admin Portal - Payments</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <i class="fas fa-wallet"></i>
+                <h3>Total Payments</h3>
+                <p class="amount">Rs.125,000</p>
+            </div>
+            <div class="dashboard-item">
+                <i class="fas fa-hourglass-half"></i>
+                <h3>Pending Payments</h3>
+                <p class="amount">Rs.15,000</p>
+            </div>
+            <div class="dashboard-item">
+                <i class="fas fa-check-circle"></i>
+                <h3>Completed Payments</h3>
+                <p class="amount">Rs.110,000</p>
+            </div>
+            <div class="dashboard-item">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>Total Transactions</h3>
+                <p class="amount">Rs.1,250</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recent Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Freelancer</th>
+                        <th>Project</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-09-15</td>
+                        <td>John Doe</td>
+                        <td>Website Redesign</td>
+                        <td>Rs.1,500</td>
+                        <td><span class="status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-14</td>
+                        <td>Jane Smith</td>
+                        <td>Mobile App Development</td>
+                        <td>Rs.2,000</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-13</td>
+                        <td>Mike Johnson</td>
+                        <td>Logo Design</td>
+                        <td>Rs.500</td>
+                        <td><span class="status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-12</td>
+                        <td>Emily Brown</td>
+                        <td>Content Writing</td>
+                        <td>Rs.800</td>
+                        <td><span class="status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-11</td>
+                        <td>David Wilson</td>
+                        <td>SEO Optimization</td>
+                        <td>Rs.1,200</td>
+                        <td><span class="status status-pending">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Payment Actions</h2>
+            <a href="pendingpayements.html" class="btn">Process Pending Payments</a>
+            <!--<a href="#" class="btn">Generate Payment Report</a>-->
+            <a href="#" class="btn">Manage Payment Methods</a>
+        </div>
+
+        <div class="card">
+            <h2>Payment Analytics</h2>
+            <div class="chart" id="paymentChart">
+                <!-- Placeholder for a chart -->
+                <!-- In a real application, you would use a charting library like Chart.js -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder for chart creation
+        // In a real application, you would use a charting library like Chart.js
+        const ctx = document.getElementById('paymentChart').getContext('2d');
+        // Chart creation code would go here
+    </script>
+</body>
+</html>

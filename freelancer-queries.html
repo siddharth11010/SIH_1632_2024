@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .message-list {
+            height: calc(100vh - 200px);
+        }
+        .message-content {
+            height: calc(100vh - 300px);
+        }
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background-color: #DCF8C6;
+            align-self: flex-end;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6">Freelancer Queries</h1>
+        
+        <div class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
+            <!-- Left column: Query list -->
+            <div class="w-full lg:w-1/3 bg-white rounded-lg shadow-md p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Inbox</h2>
+                    <select id="filterQueries" class="border rounded-md px-2 py-1">
+                        <option value="all">All Queries</option>
+                        <option value="open">Open</option>
+                        <option value="inProgress">In Progress</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                </div>
+                <div class="relative mb-4">
+                    <input type="text" id="searchQueries" placeholder="Search queries..." class="w-full pl-10 pr-4 py-2 border rounded-md">
+                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <div id="queryList" class="message-list overflow-y-auto">
+                    <!-- Query items will be dynamically inserted here -->
+                </div>
+                <!--<div class="chat-messages" id="chat-messages"></div>-->
+               
+            </div>
+            
+            <!-- Right column: Query content and response -->
+            <div class="w-full lg:w-2/3 bg-white rounded-lg shadow-md p-4">
+                <div id="queryContent" class="message-content overflow-y-auto border-b mb-4">
+                    <p class="text-gray-500 text-center">Select a query to view details</p>
+                     
+                    
+                </div>
+                <div id="responseArea" class="hidden">
+
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <h3 class="font-semibold mb-2">Respond to Query</h3>
+                    <textarea id="responseText" class="w-full p-2 border rounded-md" rows="4" placeholder="Type your response..."></textarea>
+                    <div class="flex justify-between items-center mt-2">
+                        <div>
+                            <button id="attachFile" class="bg-gray-200 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-300 mr-2">
+                                <svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                                Attach File
+                            </button>
+                        </div>
+                        <div>
+                            <button id="markResolved" class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 mr-2">Mark as Resolved</button>
+                            <button id="sendResponse" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Send Response</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const queries = [
+            { id: 1, freelancer: "John Doe", subject: "Payment Issue", status: "open", date: "2023-09-25", content: "I haven't received my payment for the completed project. Can you please check and update me?" },
+            { id: 2, freelancer: "Jane Smith", subject: "Project Deadline Extension", status: "inProgress", date: "2023-09-24", content: "Due to unforeseen circumstances, I need to request a deadline extension for the current project. Is this possible?" },
+            { id: 3, freelancer: "Mike Johnson", subject: "Client Communication", status: "resolved", date: "2023-09-23", content: "I'm having trouble reaching the client. Can you help facilitate communication?" },
+            { id: 4, freelancer: "Sarah Williams", subject: "Technical Issue", status: "open", date: "2023-09-22", content: "I'm experiencing a bug in the project management tool. It's preventing me from updating my progress." },
+            { id: 5, freelancer: "Chris Lee", subject: "Contract Clarification", status: "inProgress", date: "2023-09-21", content: "Could you please clarify the terms of the non-compete clause in my contract?" }
+        ];
+
+        const queryList = document.getElementById('queryList');
+        const queryContent = document.getElementById('queryContent');
+        const responseArea = document.getElementById('responseArea');
+        const filterQueries = document.getElementById('filterQueries');
+        const searchQueries = document.getElementById('searchQueries');
+        const responseText = document.getElementById('responseText');
+        const sendResponse = document.getElementById('sendResponse');
+        const markResolved = document.getElementById('markResolved');
+        const attachFile = document.getElementById('attachFile');
+
+        function renderQueries(queriesToRender) {
+            queryList.innerHTML = '';
+            queriesToRender.forEach(query => {
+                const queryItem = document.createElement('div');
+                queryItem.className = `query-item p-3 hover:bg-gray-100 cursor-pointer ${query.status === 'resolved' ? 'opacity-50' : ''}`;
+                queryItem.innerHTML = `
+                    <div class="font-semibold">${query.freelancer}</div>
+                    <div class="text-sm text-gray-600 truncate">${query.subject}</div>
+                    <div class="text-xs text-gray-400">${query.date}</div>
+                    <div class="text-xs mt-1 inline-block px-2 py-1 rounded-full ${getStatusColor(query.status)}">${query.status}</div>
+                `;
+                queryItem.addEventListener('click', () => showQueryContent(query));
+                queryList.appendChild(queryItem);
+            });
+        }
+
+        function getStatusColor(status) {
+            switch(status) {
+                case 'open': return 'bg-yellow-200 text-yellow-800';
+                case 'inProgress': return 'bg-blue-200 text-blue-800';
+                case 'resolved': return 'bg-green-200 text-green-800';
+                default: return 'bg-gray-200 text-gray-800';
+            }
+        }
+
+        function showQueryContent(query) {
+            queryContent.innerHTML = `
+                <h2 class="text-xl font-semibold mb-2">${query.subject}</h2>
+                <p class="text-sm text-gray-600 mb-2">From: ${query.freelancer} | Date: ${query.date}</p>
+                <p class="mb-4">${query.content}</p>
+                <div class="text-sm inline-block px-2 py-1 rounded-full ${getStatusColor(query.status)}">${query.status}</div>
+            `;
+            responseArea.classList.remove('hidden');
+        }
+
+        filterQueries.addEventListener('change', filterAndSearchQueries);
+        searchQueries.addEventListener('input', filterAndSearchQueries);
+
+        function filterAndSearchQueries() {
+            const filterValue = filterQueries.value;
+            const searchValue = searchQueries.value.toLowerCase();
+            const filteredQueries = queries.filter(query => 
+                (filterValue === 'all' || query.status === filterValue) &&
+                (query.freelancer.toLowerCase().includes(searchValue) || query.subject.toLowerCase().includes(searchValue))
+            );
+            renderQueries(filteredQueries);
+        }
+
+        sendResponse.addEventListener('click', () => {
+            <!--alert('Response sent: ' + responseText.value);-->
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.textContent = responseText.value;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            responseText.value = '';
+        });
+
+        markResolved.addEventListener('click', () => {
+            alert('Query marked as resolved');
+        });
+
+        attachFile.addEventListener('click', () => {
+            alert('File attachment functionality would be implemented here');
+        });
+
+        // Initial render
+        renderQueries(queries);
+    </script>
+</body>
+</html>

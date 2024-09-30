@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management - Support Team</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #333;
+            --danger-color: #e74c3c;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .search-container {
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .button-block {
+            background-color: var(--danger-color);
+            color: #fff;
+        }
+
+        .button-unblock {
+            background-color: var(--success-color);
+            color: #fff;
+        }
+
+        .button-remove {
+            background-color: var(--warning-color);
+            color: #fff;
+        }
+
+        .blocked {
+            background-color: #ffebee !important;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background-color: var(--success-color);
+            color: #fff;
+        }
+
+        .status-blocked {
+            background-color: var(--danger-color);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Management</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search accounts...">
+        </div>
+        <table id="accountTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Account rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sample account data (in a real application, this would come from a server)
+        const accounts = [
+            { id: 1, username: 'freelancer1', type: 'Freelancer', status: 'Active' },
+            { id: 2, username: 'hirer1', type: 'Hirer', status: 'Active' },
+            { id: 3, username: 'freelancer2', type: 'Freelancer', status: 'Blocked' },
+            { id: 4, username: 'hirer2', type: 'Hirer', status: 'Active' },
+            { id: 5, username: 'freelancer3', type: 'Freelancer', status: 'Active' },
+        ];
+
+        function renderAccounts(accountsToRender) {
+            const tableBody = document.querySelector('#accountTable tbody');
+            tableBody.innerHTML = '';
+
+            accountsToRender.forEach(account => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${account.username}</td>
+                    <td>${account.type}</td>
+                    <td><span class="status status-${account.status.toLowerCase()}">${account.status}</span></td>
+                    <td>
+                        <button class="button ${account.status === 'Blocked' ? 'button-unblock' : 'button-block'}" onclick="toggleBlockAccount(${account.id})">
+                            ${account.status === 'Blocked' ? 'Unblock' : 'Block'}
+                        </button>
+                        <button class="button button-remove" onclick="removeAccount(${account.id})">Remove</button>
+                    </td>
+                `;
+                if (account.status === 'Blocked') {
+                    row.classList.add('blocked');
+                }
+                tableBody.appendChild(row);
+            });
+        }
+
+        function toggleBlockAccount(id) {
+            const account = accounts.find(a => a.id === id);
+            if (account) {
+                account.status = account.status === 'Blocked' ? 'Active' : 'Blocked';
+                renderAccounts(accounts);
+            }
+        }
+
+        function removeAccount(id) {
+            const index = accounts.findIndex(a => a.id === id);
+            if (index !== -1) {
+                accounts.splice(index, 1);
+                renderAccounts(accounts);
+            }
+        }
+
+        function searchAccounts(query) {
+            return accounts.filter(account => 
+                account.username.toLowerCase().includes(query.toLowerCase()) ||
+                account.type.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+
+        // Initial render
+        renderAccounts(accounts);
+
+        // Add event listener for search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            const filteredAccounts = searchAccounts(query);
+            renderAccounts(filteredAccounts);
+        });
+    </script>
+</body>
+</html>

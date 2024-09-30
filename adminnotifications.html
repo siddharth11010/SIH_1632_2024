@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub Admin - Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #2c3e50;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #34495e 3px solid;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .notification-settings, .recent-notifications {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .notification-group {
+            margin-bottom: 20px;
+        }
+        .notification-group h2 {
+            color: #2c3e50;
+        }
+        .notification-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .recent-notification {
+            background-color: #f9f9f9;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .recent-notification p {
+            margin: 0;
+        }
+        .recent-notification .timestamp {
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FreelanceFlow Admin - Notifications</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="notification-settings">
+            <h2>Notification Settings</h2>
+            <div class="notification-group">
+                <h3>System Notifications</h3>
+                <div class="notification-item">
+                    <span>New user registrations</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>System updates</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>Security alerts</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="notification-group">
+                <h3>User Activity</h3>
+                <div class="notification-item">
+                    <span>New project postings</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>Large transactions</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>User reports</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="notification-group">
+                <h3>Platform Updates</h3>
+                <div class="notification-item">
+                    <span>New feature rollouts</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>Maintenance schedules</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="notification-item">
+                    <span>Performance reports</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-notifications">
+            <h2>Recent Notifications</h2>
+            <div class="recent-notification">
+                <p><strong>New User Registration:</strong> John Doe (john@example.com) has joined FreelanceHub.</p>
+                <p class="timestamp">2 minutes ago</p>
+            </div>
+            <div class="recent-notification">
+                <p><strong>Large Transaction Alert:</strong> A payment of $5000 has been processed for project #1234.</p>
+                <p class="timestamp">15 minutes ago</p>
+            </div>
+            <div class="recent-notification">
+                <p><strong>System Update:</strong> New feature "Instant Chat" will be rolled out in 24 hours.</p>
+                <p class="timestamp">1 hour ago</p>
+            </div>
+            <div class="recent-notification">
+                <p><strong>Security Alert:</strong> Multiple failed login attempts detected for admin account "superuser".</p>
+                <p class="timestamp">2 hours ago</p>
+            </div>
+            <div class="recent-notification">
+                <p><strong>User Report:</strong> A dispute has been filed for project #5678. Immediate attention required.</p>
+                <p class="timestamp">3 hours ago</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
